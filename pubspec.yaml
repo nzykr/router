@@ -1,0 +1,4 @@
+name: router
+description: A minimal router.
+dependencies:
+    unittest: any
