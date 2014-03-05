@@ -18,7 +18,7 @@ class Router {
   // to halt the execution a route can return a future that
   // completes with an error or throw an execption.
   dispatch(String pathname) {
-    List<Route> handlers = routes.where((r) => r.matches(pathname));
+    List<Route> handlers = routes.where((r) => r.matches(pathname)).toList();
     Context context = new Context(pathname);
     var d = Future.forEach(handlers, (handler) {
       var res = handler(context);
