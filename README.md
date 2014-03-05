@@ -10,6 +10,7 @@ To halt execution, they can return a future that completes with an error, or thr
 
 ## Example
 
+```
   import 'package:router/router.dart';
   
   Router router = new Router();
@@ -46,4 +47,5 @@ To halt execution, they can return a future that completes with an error, or thr
     }
   });
   
+```
   
