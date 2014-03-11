@@ -12,6 +12,7 @@ To halt execution, they can return a future that completes with an error, or thr
 
 ```
   import 'package:router/router.dart';
+  import 'dart:async';
   
   Router router = new Router();
   
@@ -21,6 +22,7 @@ To halt execution, they can return a future that completes with an error, or thr
     request('/images.json')
       .then((res) {
         context.env['images'] = res.body
+        completer.complete(res.body);
         })
     return completer.future;
   });
@@ -34,7 +36,7 @@ To halt execution, they can return a future that completes with an error, or thr
     
   // stop executing routes if no user if logged in
   router.route('/admin', (context) {
-    if (!user.isAdmin) {
+    if (!user.isAdmin()) {
       throw Unauthorized();
     }
   });
